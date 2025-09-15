@@ -3,25 +3,55 @@ import { Search, Phone, AlignJustify, X } from 'lucide-react';
 import { Link } from "react-router-dom";
 
 
-const HeaderMain = () => {
+const HeaderMain = ({ logoText = "Turfhub", showContact = true, textColor = "text-lime-400", textColorButton = 'text-gray-300',buttonUlH,buttonUlA,buttonUlS,buttonUlC,buttonUlP,buttonUlT }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="flex items-center justify-between px-6 py-4 lg:px-12 relative container mx-auto">
-      <div className="text-2xl font-bold text-lime-400">
-        Turfhub
+    <header className="flex items-center justify-between px-6 py-4 lg:px-12 relative container mx-auto z-10">
+      <div className={`text-2xl font-bold ${textColor}`}>
+        {logoText}
       </div>
 
       {/* Desktop Navigation */}
-      <nav className="hidden lg:flex items-center space-x-8">
-        <Link to="/" className="text-white hover:text-lime-400 transition-colors bg-amber-50/25 rounded-3xl py-2 px-4">Home</Link>
-         <Link to="/about" className="text-gray-300 hover:text-lime-400 transition-colors bg-amber-50/25 rounded-3xl py-2 px-4">About</Link>
-        <Link to="/services" className="text-gray-300 hover:text-lime-400 transition-colors bg-amber-50/25 rounded-3xl py-2 px-4">Service</Link>
-        {/*<Link to="/courts" className="text-gray-300 hover:text-lime-400 transition-colors bg-amber-50/25 rounded-3xl py-2 px-4">Court</Link>
-        <Link to="/products" className="text-gray-300 hover:text-lime-400 transition-colors bg-amber-50/25 rounded-3xl py-2 px-4">Shop</Link>
-        <Link to="/testimonials" className="text-gray-300 hover:text-lime-400 transition-colors bg-amber-50/25 rounded-3xl py-2 px-4">Testmonials</Link> */}
+      <div className={`hidden lg:flex items-center space-x-8 `}>
+        <Link
+          to="/"
+          className={`${textColorButton} ${buttonUlH} hover:text-lime-400 transition-colors bg-amber-50/25 rounded-3xl py-2 px-4`}
+        >
+          Home
+        </Link>
+        <Link
+          to="/about"
+          className={`${textColorButton} ${buttonUlA} hover:text-lime-400 transition-colors bg-amber-50/25 rounded-3xl py-2 px-4`}
+        >
+          About
+        </Link>
+        <Link
+          to="/services"
+          className={` ${textColorButton} ${buttonUlS} hover:text-lime-400 transition-colors bg-amber-50/25 rounded-3xl py-2 px-4`}
+        >
+          Service
+        </Link>
+        <Link
+          to="/courts"
+          className={` ${textColorButton} ${buttonUlC} hover:text-lime-400 transition-colors bg-amber-50/25 rounded-3xl py-2 px-4`}
+        >
+          Court
+        </Link>
+        <Link
+          to="/products"
+          className={` ${textColorButton} ${buttonUlP} hover:text-lime-400 transition-colors bg-amber-50/25 rounded-3xl py-2 px-4`}
+        >
+          Shop
+        </Link>
+        <Link
+          to="/testimonials"
+          className={` ${textColorButton} ${buttonUlT} hover:text-lime-400 transition-colors bg-amber-50/25 rounded-3xl py-2 px-4`}
+        >
+          Testmonials
+        </Link>
 
-      </nav>
+      </div>
 
 
       {/* Desktop Right Section */}
@@ -35,10 +65,12 @@ const HeaderMain = () => {
           <Search size={18} className="text-gray-300 ml-2" />
         </div>
 
-        <button className="flex items-center bg-white text-black px-6 py-2 rounded-full hover:bg-lime-400 transition-colors">
-          <span className="mr-2">Contact</span>
-          <Phone size={16} />
-        </button>
+        {showContact && (
+          <button className="flex items-center bg-white text-black px-6 py-2 rounded-full hover:bg-lime-400 transition-colors">
+            <span className="mr-2">Contact</span>
+            <Phone size={16} />
+          </button>
+        )}
       </div>
 
       {/* Mobile Menu Button */}

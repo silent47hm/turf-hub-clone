@@ -1,6 +1,7 @@
 import React from 'react';
 import { Calendar, Users, Trophy, ShoppingBag } from 'lucide-react';
 import HeaderMain from '../components/header';
+import FooterMain from '../components/footer';
 
 const Services = () => {
   const services = [
@@ -29,23 +30,20 @@ const Services = () => {
 
   return (
     
-    <section className="relative min-h-screen bg-gray-900 overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden bg-[url('/services/s-1.jpg')] bg-cover bg-center bg-green-900/50">
       <div>
         <HeaderMain/>
       </div>
       {/* Background Image - Football Field */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800"><defs><linearGradient id="field" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23166534"/><stop offset="50%" stop-color="%23064e3b"/><stop offset="100%" stop-color="%23022c22"/></linearGradient></defs><rect width="1400" height="800" fill="url(%23field)"/><rect x="0" y="200" width="1400" height="2" fill="%23ffffff" opacity="0.3"/><rect x="0" y="400" width="1400" height="2" fill="%23ffffff" opacity="0.3"/><rect x="0" y="600" width="1400" height="2" fill="%23ffffff" opacity="0.3"/><rect x="200" y="0" width="2" height="800" fill="%23ffffff" opacity="0.2"/><rect x="600" y="0" width="2" height="800" fill="%23ffffff" opacity="0.2"/><rect x="1000" y="0" width="2" height="800" fill="%23ffffff" opacity="0.2"/><circle cx="1100" cy="400" r="80" fill="%2322c55e" opacity="0.1"/></svg>')`,
-        }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat "
       >
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        {/* <div className="absolute inset-0 bg-black bg-opacity-50"></div> */}
       </div>
 
       {/* Player silhouette overlay */}
-      <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-transparent to-black opacity-30"></div>
+      {/* <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-transparent to-black opacity-30"></div> */}
       
       {/* Content */}
       <div className="relative z-10 px-6 py-12 lg:px-16 lg:py-20">
@@ -56,7 +54,7 @@ const Services = () => {
             <div className="mb-8 lg:mb-0 max-w-3xl">
               {/* Service Badge */}
               <div className="inline-flex items-center px-4 py-2 bg-white bg-opacity-10 rounded-full border border-white border-opacity-20 backdrop-blur-sm mb-6">
-                <span className="text-white text-sm font-medium">Service</span>
+                <span className="text-black text-2xl font-medium">Service</span>
               </div>
               
               {/* Main Heading */}
@@ -108,12 +106,7 @@ const Services = () => {
           </div>
         </div>
       </div>
-
-      {/* Player Figure (positioned absolutely) */}
-      <div className="hidden lg:block absolute right-20 xl:right-32 top-1/2 transform -translate-y-1/2">
-        <div className="w-32 h-48 bg-gradient-to-b from-gray-700 to-gray-900 rounded-t-full opacity-70"></div>
-        <div className="w-32 h-24 bg-gradient-to-b from-gray-800 to-black rounded-b-lg opacity-70 -mt-2"></div>
-      </div>
+      <FooterMain/>
     </section>
   );
 };

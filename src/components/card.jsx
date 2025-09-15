@@ -1,23 +1,24 @@
 import React from 'react'
+import BlurButton from './blurButton'
 
 
-export default function Card({img, title, subtitle, price, badge}){
-return (
-<div className="bg-white rounded-2xl shadow-sm overflow-hidden">
-<div className="relative">
-<img src={img} alt="" className="w-full h-52 object-cover rounded-t-2xl" />
-{badge && (
-<div className="absolute top-3 left-3 bg-white/80 px-3 py-1 rounded-full text-xs">{badge}</div>
-)}
-</div>
-<div className="p-4">
-<h3 className="font-semibold text-lg">{title}</h3>
-{subtitle && <p className="text-sm text-gray-600 mt-1">{subtitle}</p>}
-<div className="mt-4 flex items-center justify-between">
-<div className="text-lg font-bold">{price}</div>
-<button className="px-4 py-2 rounded-full bg-primary text-white text-sm">View Details</button>
-</div>
-</div>
-</div>
-)
+export default function Card({ img, title, subtitle, price, badge, heightCard }) {
+    return (
+        <div
+            className={`rounded-2xl shadow-sm overflow-hidden bg-cover flex flex-col ${heightCard}`}
+            style={{ backgroundImage: `url(${img})` }}
+        >
+            <div className="flex-1"></div> {/* This pushes the content down */}
+            <div className="p-4 ">
+                <h3 className="font-semibold text-2xl text-white">{title}</h3>
+                {subtitle && <p className="text-sm text-gray-600 ">{subtitle}</p>}
+                <div className="mt-2 flex items-center justify-between">
+                    <div className="text-xl font-bold text-white">{price}</div>
+                    <BlurButton
+                    anyText='Shop Now'
+                    />
+                </div>
+            </div>
+        </div>
+    )
 }
